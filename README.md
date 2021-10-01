@@ -16,7 +16,9 @@ Use with command line
 
 ```-o``` // Output file; required: Nome for output file
 
+### Examples
+
 
 ```python main.py -o output_example```
 
-```python main.py -q 120 -c br -o usa_120```
+```python main.py -q 120 -c usa -o usa_120```
