@@ -1,6 +1,7 @@
 import cfscrape, csv, argparse, json, datetime
 from bs4 import BeautifulSoup
 
+#Alterando
 
 class Spotify:
     def __init__(self) -> None:
