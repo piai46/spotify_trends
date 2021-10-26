@@ -23,9 +23,9 @@ class Spotify:
             }
             yield top_chart
 
-    def save_to_csv(self, data):
-        with open('top_chart_spotify.csv', 'w',newline='', encoding='utf-8') as file:
-            fieldnames = ['chart_position', 'chart_author_name', 'chart_music_name']
+    def save_to_csv(self, data, output):
+        with open(f'{output}.csv', 'w',newline='', encoding='utf-8') as file:
+            fieldnames = ['chart_position', 'chart_author_name', 'chart_music_name', 'total_streams']
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writeheader()
             for item in data:
@@ -52,7 +52,7 @@ class Spotify:
         parser.add_argument('-o', required=True, action='store', dest='output', type=str, help='File name to save.')
         args = parser.parse_args()
         output = self.spotify_top_charts(country=args.country, date=args.date, frequency=args.frequency, quantity=args.quantity)
-        self.save_to_json(output, args.output)
+        self.save_to_csv(output, args.output)
 
 if __name__ == '__main__':
     spotify_trends = Spotify()
